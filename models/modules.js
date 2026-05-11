@@ -28,7 +28,8 @@ module.exports.create = function create(code, name, credit) {
 
 
 module.exports.retrieveByCode = function retrieveByCode(code) {
-    const sql = `SELECT * FROM module WHERE mod_code = $1`;
+    // const sql = `SELECT * FROM module WHERE mod_code = $1`;
+    const sql = 'SELECT * FROM get_modules_performance() AS result';
     return query(sql, [code]).then(function (result) {
         const rows = result.rows;
 
@@ -94,7 +95,7 @@ module.exports.updateByCode = function updateByCode(code, credit) {
 
 // Q3.
 // Question 2
-module.exports.updateByCode = function updateByCode(code,credit) {
+module.exports.updateByCode = function updateByCode(code, credit) {
     console.log(code, credit)
     const sql = `CALL update_module($1,$2)`;
 
@@ -127,3 +128,15 @@ module.exports.retrieveBulk = function retrieveBulk(codes) {
         return result;
     });
 };
+
+// module.exports.generateModulesPerformance = function generateModulesPerformance() {
+//     const sql = 'SELECT * FROM get_modules_performance() AS result';
+//     return query(sql)
+//         .then(function (result) {
+//             const rows = result.rows;
+//             return rows;
+//         })
+//         .catch(function (error) {
+//             throw error;
+//         });
+// };
