@@ -23,4 +23,14 @@ router.get('/', modulesController.retrieveAll);
 
 router.post('/table', modulesController.initTable);
 
+// module.exports.create = function create(code, name, credit) {
+// return query('CALL create_module($1, $2, $3)', [code, name, credit])
+// .then(function (result) {
+// console.log('Module created successfully');
+// })
+// .catch(function (error) {
+// throw error;
+// });
+// };
+
 module.exports = router;
